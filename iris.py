@@ -10,6 +10,12 @@ st.header("종별 평균")
 st.dataframe(iris.groupby('species').mean())
 st.bar_chart(iris.groupby('species').mean())
 
+st.header('Box Plot 예제')
+fig, ax = plt.subplots()
+sns.boxenplot(data=iris[["sepal_length","sepal_width","petal_length","petal_width"]], ax=ax)
+st.pyplot(fig)
+plt.close(fig)
+
 st.header('원본 데이터')
 st.dataframe(iris)
 st.header('sepal_width vs. sepal_length')
