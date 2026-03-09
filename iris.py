@@ -6,6 +6,9 @@ iris = sns.load_dataset('iris')
 st.title('IRIS 데이터 예제')
 "이 예제는 seaborn iris 데이터를 다양한 형식으로 보여주는 것입니다."
 
+st.header('원본 데이터')
+st.dataframe(iris)
+
 st.header("종별 평균")
 st.dataframe(iris.groupby('species').mean())
 st.bar_chart(iris.groupby('species').mean())
@@ -16,8 +19,6 @@ sns.boxenplot(data=iris[["sepal_length","sepal_width","petal_length","petal_widt
 st.pyplot(fig)
 plt.close(fig)
 
-st.header('원본 데이터')
-st.dataframe(iris)
 st.header('sepal_width vs. sepal_length')
 st.scatter_chart(iris, x="sepal_width", y="sepal_length")
 
