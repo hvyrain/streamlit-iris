@@ -1,17 +1,22 @@
 import seaborn as sns
 import streamlit as st
 import matplotlib.pyplot as plt
-iris = sns.load_dataset('iris')
+@st.cache_data
+def load_data():
+    return sns.load_dataset('iris') 
+iris = load_data()
 
 st.title('IRIS 데이터 예제')
 "이 예제는 seaborn iris 데이터를 다양한 형식으로 보여주는 것입니다."
 
 st.header('원본 데이터')
-st.dataframe(iris)
+if st.checkbox('데이터프레임 보기'):
+    st.dataframe(iris)
 
 st.header("종별 평균")
-st.dataframe(iris.groupby('species').mean())
-st.bar_chart(iris.groupby('species').mean())
+if st.checkbox('종별 평균값 보기'):
+    st.dataframe(iris.groupby('species').mean())
+    st.bar_chart(iris.groupby('species').mean())
 
 st.header('Box Plot 예제')
 fig, ax = plt.subplots()
