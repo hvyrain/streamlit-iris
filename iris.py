@@ -7,8 +7,12 @@ def load_data():
 iris = load_data()
 
 st.title('IRIS 데이터 예제')
-"이 예제는 seaborn iris 데이터를 다양한 형식으로 보여주는 것입니다."
-
+st.html(
+'''    
+<div style="border:1px solid blue">
+    이 예제는 seaborn iris 데이터를 다양한 형식으로 보여주는 것입니다.
+</div>
+''')
 st.header('원본 데이터')
 if st.checkbox('데이터프레임 보기'):
     st.dataframe(iris)
